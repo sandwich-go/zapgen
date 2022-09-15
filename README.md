@@ -4,9 +4,15 @@
 
 # 使用
 ```go
-var a = make(map[uint64]string)
-a[1] = "a"
-a[2] = "b"
+import "github.com/sandwich-go/zapgen/zapencoder"
+import "go.uber.org/zap"
+import "testing"
 
-fmt.Println(zap.Object("A", zapencoder.Uint64StringMap(a)))
+func TestUint64StringMap(t *testing.T) {
+    var a = make(map[uint64]string)
+    a[1] = "a"
+    a[2] = "b"
+
+    t.Log(zap.Object("A", zapencoder.Uint64StringMap(a)))
+}
 ```
